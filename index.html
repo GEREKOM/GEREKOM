@@ -6,133 +6,139 @@
   <title>GEREKOM</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+ <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
 
-    body {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80')
-                  no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: #fff;
-      text-align: center;
-      overflow: hidden;
-    }
+  body {
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80')
+                no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+    overflow-y: auto;
+    padding: 20px;
+  }
 
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      margin-bottom: 20px;
-      color: floralwhite;
-    }
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    color: floralwhite;
+  }
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-      color: yellow;
-    }
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    color: yellow;
+  }
 
-    .btn-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  .btn-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    button {
-      background: rgba(255, 255, 255, 0.15);
-      border: 2px solid #fff;
-      color: #fff;
-      padding: 15px 40px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 500;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-    }
+  button {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
 
-    button:hover {
-      background: #fff;
-      color: #004aad;
-      transform: translateY(-3px);
-    }
+  button:hover {
+    background: #fff;
+    color: #004aad;
+    transform: translateY(-3px);
+  }
 
-    /* ====== SECTION FORM ====== */
-    .form-section {
-      display: none;
-      position: relative;
-      width: 90%;
-      max-width: 900px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-      color: #fff;
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      animation: fadeIn 0.6s ease;
-    }
+  /* ====== SECTION FORM ====== */
+  .form-section {
+    display: none;
+    position: relative;
+    width: 95%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 60px 20px 40px 20px; /* + padding top & bottom */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    animation: fadeIn 0.6s ease;
+    overflow-y: auto;
+  }
 
+  iframe {
+    width: 100%;
+    min-height: 80vh; /* Hauteur dynamique */
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  .back-btn {
+    position: sticky;
+    top: 10px; /* espace en haut */
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+  }
+
+  .back-btn:hover {
+    background: #fff;
+    color: #004aad;
+  }
+
+  h2 {
+    margin-bottom: 15px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
     iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.85);
+      min-height: 100vh;
     }
+  }
+</style>
 
-    .back-btn {
-      background: rgba(255, 255, 255, 0.2);
-      border: 2px solid #fff;
-      color: #fff;
-      padding: 10px 25px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(6px);
-    }
-
-    .back-btn:hover {
-      background: #fff;
-      color: #004aad;
-    }
-
-    h2 {
-      margin-bottom: 15px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 768px) {
-      iframe {
-        height: 950px;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -180,3 +186,4 @@
   </script>
 </body>
 </html>
+

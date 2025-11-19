@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEREKOM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80')
+                no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  /* 🔹 Bannière dynamique */
+  .banner {
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #FFD700;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 12px 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+  }
+
+  .banner span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 12s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes scrollText {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    margin-top: 80px; /* espace sous la bannière */
+    margin-bottom: 20px;
+    color: floralwhite;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    color: yellow;
+  }
+
+  .btn-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background: #fff;
+    color: #004aad;
+    transform: translateY(-3px);
+  }
+
+  .form-section {
+    display: none;
+    position: relative;
+    width: 95%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 60px 20px 40px 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    backdrop-filter: blur(15px);
+    animation: fadeIn 0.6s ease;
+    overflow-y: auto;
+  }
+
+  iframe {
+    width: 100%;
+    min-height: 80vh;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  .back-btn {
+    position: sticky;
+    top: 10px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+  }
+
+  .back-btn:hover {
+    background: #fff;
+    color: #004aad;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- 🔹 Bannière dynamique -->
+<div class="banner">
+  <span>✨ Bonjour Monsieur AZIZ — Bienvenue sur votre portail GEREKOM ✨</span>
+</div>
+
+<!-- ACCUEIL -->
+<div id="home">
+  <h1>Portail de Gestion GEREKOM</h1>
+  <p>Choisissez la section que vous souhaitez ouvrir :</p>
+
+  <div class="btn-container">
+    <button onclick="showForm('stockForm')">📦 STOCK</button>
+    <button onclick="showForm('salesForm')">📊 SALES</button>
+    <button onclick="showForm('chargesForm')">💸 CHARGES</button>
+  </div>
+</div>
+
+<!-- STOCK -->
+<div id="stockForm" class="form-section">
+  <button class="back-btn" onclick="goHome()">⬅ Retour</button>
+  <h2>📦 STOCK</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdjwBXyuzi5YEVUxZHWws5k-33qq9FfcJmpYRtoANAAbEYeWQ/viewform?embedded=true"></iframe>
+</div>
+
+<!-- SALES -->
+<div id="salesForm" class="form-section">
+  <button class="back-btn" onclick="goHome()">⬅ Retour</button>
+  <h2>📊 SALES</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNXZvnjMo40DnD0wWJ0MLL-YVKm6ZcB7_uWeN8v94iV7ZtGg/viewform?embedded=true"></iframe>
+</div>
+
+<!-- CHARGES -->
+<div id="chargesForm" class="form-section">
+  <button class="back-btn" onclick="goHome()">⬅ Retour</button>
+  <h2>💸 CHARGES</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJBOXPP3o_AdofTJYnQlnnYGz0IOKXys5eo56xyur4Is5JmQ/viewform?embedded=true"></iframe>
+</div>
+
+<script>
+  function showForm(id) {
+    document.getElementById('home').style.display = 'none';
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function goHome() {
+    document.querySelectorAll('.form-section').forEach(s => s.style.display = 'none');
+    document.getElementById('home').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

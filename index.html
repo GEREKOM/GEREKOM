@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,12 +15,13 @@
   }
 
   body {
+    direction: rtl; /* 🔹 lecture de droite à gauche */
     min-height: 100vh;
     background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80')
                 no-repeat center center/cover;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     color: #fff;
     text-align: center;
@@ -28,10 +29,38 @@
     padding: 20px;
   }
 
+  .banner {
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #FFD700;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 12px 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+  }
+
+  .banner span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 12s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes scrollText {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
   h1 {
     font-size: 2.8rem;
     font-weight: 600;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    margin-top: 80px;
     margin-bottom: 20px;
     color: floralwhite;
   }
@@ -129,37 +158,34 @@
 
 <body>
 
-<!-- ACCUEIL -->
+<!-- 🔹 Bannière dynamique -->
+<div class="banner">
+  <span>✨ مرحباً السيد عمر — أهلاً بك في بوابة جيريكوم ✨</span>
+</div>
+
+<!-- الصفحة الرئيسية -->
 <div id="home">
-  <h1>Portail de Gestion GEREKOM</h1>
-  <p>Choisissez la section que vous souhaitez ouvrir :</p>
+  <h1>بوابة إدارة جيريكوم</h1>
+  <p>اختر القسم الذي تريد فتحه :</p>
 
   <div class="btn-container">
-    <button onclick="showForm('stockForm')">📦 STOCK</button>
-    <button onclick="showForm('salesForm')">📊 SALES</button>
-    <button onclick="showForm('chargesForm')">💸 CHARGES</button>
+    <button onclick="showForm('chargesForm')">💸 المصاريف</button>
+    <button onclick="showForm('salesForm')">📊 المبيعات</button>
   </div>
 </div>
 
-<!-- STOCK -->
-<div id="stockForm" class="form-section">
-  <button class="back-btn" onclick="goHome()">⬅ Retour</button>
-  <h2>📦 STOCK</h2>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdnfByi0kOpj_gIdDP_XgT2crh1bWWYHm5EEs1BG0szGPbLpA/viewform?embedded=true"></iframe>
-</div>
-
-<!-- SALES -->
-<div id="salesForm" class="form-section">
-  <button class="back-btn" onclick="goHome()">⬅ Retour</button>
-  <h2>📊 SALES</h2>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdRjCeibvzklLtGWvj9V_zjbpP7Ur1WhB8s6QGKXXZztKjFIg/viewform?embedded=true"></iframe>
-</div>
-
-<!-- CHARGES -->
+<!-- المصاريف -->
 <div id="chargesForm" class="form-section">
-  <button class="back-btn" onclick="goHome()">⬅ Retour</button>
-  <h2>💸 CHARGES</h2>
+  <button class="back-btn" onclick="goHome()">⬅ رجوع</button>
+  <h2>💸 المصاريف</h2>
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeyO2_cSVWxcbS0bb6_ktypDtkKqUQlclpFRcxOST3K1a82Cw/viewform?embedded=true"></iframe>
+</div>
+
+<!-- المبيعات -->
+<div id="salesForm" class="form-section">
+  <button class="back-btn" onclick="goHome()">⬅ رجوع</button>
+  <h2>📊 المبيعات</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdRjCeibvzklLtGWvj9V_zjbpP7Ur1WhB8s6QGKXXZztKjFIg/viewform?embedded=true"></iframe>
 </div>
 
 <script>
@@ -176,4 +202,3 @@
 
 </body>
 </html>
-
